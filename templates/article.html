@@ -11,7 +11,7 @@
 {{ article.content }}
 
 <div class="article-footer">
-    <p><i>Tags:</i> {% for tag in article.tags %}<a href="{{ tag.url }}">{{ tag.name }}</a> {% endfor %}</p>
+    <p><i>Tags:</i> {% for tag in article.tags|sort %}<a href="{{ tag.url }}">{{ tag.name }}</a> {% endfor %}</p>
 
     <p>Thank you for reading!, don't forget to subscribe to my mailing list!, I don't send any spam and sometimes I do share interesting stuff</p>
     <form id='article-subscribe-form' class="navbar-form" role="subscribe">
