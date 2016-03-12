@@ -5,7 +5,7 @@ body {
     text-align: justify;
     text-justify: inter-word;
 }
-h1, .my-red-color {
+h1, .my-red-color, .article > h3, .article > a {
     color: #870101;
 }
 #header {
