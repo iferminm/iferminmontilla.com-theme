@@ -17,31 +17,24 @@
             <span>Software Engineer</span>
         </div>
     </div>
-    <div id="main-nav" class="navbar-default" style="height:60px;">
-            <div class="navbar-header-">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
+    <div class="row">
+        <div class="col-xs-2">
             <div class="collapse navbar-collapse" id="nav-elements">
-                <ul class="nav navbar-nav">
+                <ul class="nav nav-pills nav-stacked">
                     {% for cat, null in categories %}
+                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
+                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
+                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
                         <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
                     {% endfor %}
                 </ul>
-                <form id="form-subscribe" class="navbar-form navbar-right" role="subscribe">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email">
-                    </div>
-                    <button type="submit" class="btn btn-default">Get updates</button>
-                </form>
             </div>
-    </div>
-    <div id="main-content" class="container"> 
-        {% block content %}{% endblock content %}
+        </div>
+        <div class="col-xs-10">
+            <div id="main-content" class="ckontainer"> 
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
     </div>
     <div class="footer">
         <div class="container">
