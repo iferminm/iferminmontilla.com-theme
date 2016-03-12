@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}">
+</head>
+<body>
+    <div id="header">
+        <div id="header-logo-holder">
+            <img src="{{ SITEURL }}/theme/images/{{ LOGO }}" alt="">    
+        </div>
+        <div id="logo-text">
+            <span><b>Israel Fermín Montilla</b></span>
+            <span>Software Engineer</span>
+        </div>
+    </div>
+    <div id="main-nav" class="navbar-default" style="height:60px;">
+            <div class="navbar-header-">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="nav-elements">
+                <ul class="nav navbar-nav">
+                    {% for cat, null in categories %}
+                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <form id="form-subscribe" class="navbar-form navbar-right" role="subscribe">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <button type="submit" class="btn btn-default">Get updates</button>
+                </form>
+            </div>
+    </div>
+    <div id="main-content" class="container"> 
+        {% block content %}{% endblock content %}
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8">
+                    Created by <a href="http://iferminmontilla.com">Israel Fermín Montilla</a> using <a href="http://getpelican.com" target="_blank">Pelican</a> and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>.
+                    All content here is under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en_US" target="_blank">Attribution-ShareAlike 3.0 Unported</a> license. Logo designed by <a href="https://about.me/andresfermin" target="_blank">Andrés Fermín</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
+

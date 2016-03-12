@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title%}{{ article.title }} - {{ article.author.name }}{% endblock title%}
+
+{% block content %}
+<div class="article-header">
+    <h1>{{ article.title }}</h1> 
+    by <a href="{{ article.author.url }}">{{ article.author.name }}</a>
+</div>
+
+{{ article.content }}
+
+<div class="article-footer">
+    <p><i>Tags:</i> {% for tag in article.tags %}<a href="{{ tag.url }}">{{ tag.name }}</a> {% endfor %}</p>
+
+    <p>Thank you for reading!, don't forget to subscribe to my mailing list!, I don't send any spam and sometimes I do share interesting stuff</p>
+    <form id='article-subscribe-form' class="navbar-form" role="subscribe">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <button type="submit" class="btn btn-default">Get updates</button>
+    </form>
+</div>
+
+{% endblock content %}

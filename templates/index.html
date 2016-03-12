@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if INCLUDE_BIO and BIO %}
+        <h1>{{ BIO.title }}</h1>
+        {{ BIO.details }}
+    {% endif %}
+
+    <h1>Latest posts...</h1>
+    <ul>
+        {% for article in articles[:10] %}
+            <li><h3 style="display:inline"><a href="{{ article.url }}">{{ article.title}}</a></h3> - {{ article.category }} ({{ article.date.strftime(DATE_FORMAT) }})</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
