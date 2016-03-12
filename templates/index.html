@@ -9,7 +9,8 @@
     <h1>Latest posts...</h1>
     <ul>
         {% for article in articles[:10] %}
-            <li><h3 style="display:inline"><a href="{{ article.url }}">{{ article.title}}</a></h3> - {{ article.category }} ({{ article.date.strftime(DATE_FORMAT) }})</li>
+            <li><h3 style="display:inline"><a href="{{ article.url }}">{{ article.title}}</a></h3> ({{ article.date.strftime(DATE_FORMAT) }})</li>
+            {{ article.summary }}
         {% endfor %}
     </ul>
 {% endblock content %}

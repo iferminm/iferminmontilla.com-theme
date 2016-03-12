@@ -9,7 +9,7 @@ Posts by <a href="{{ author.url }}">{{ author.name }}</a>:
 <ul>
     {% for article in articles %}
         {% if article.author == author %}
-        <li><a href="{{ article.url }}">{{ article.title }}</a> - <a href="{{ article.category.url}}">{{ article.category.name }}</a> / {{ article.date.strftime(DATE_FORMAT) }}</li>
+            <li><a href="{{ SITEURL }}/{{ article.slug }}.html">{{ article.title }}</a> ({{ article.date.strftime(DATE_FORMAT) }})</li>
         {% endif %}
     {% endfor %}
 </ul>
