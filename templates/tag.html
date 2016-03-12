@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ tag.name }}</h1>
+    {% for t, articles in tags %}
+        {% if tag.name == t.name %}
+            {% for article in articles %}
+                <div class="article">
+                    <h3><a class="my-red-color" href="{{ article.url }}">{{ article.title}}</a></h3>
+                    <span class="metadata">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ article.date.strftime(DATE_FORMAT) }} <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {% for tag in article.tags %}<a href="{{tag.url}}">{{ tag.name }}</a> {% endfor %}
+                    </span>
+                    {{ article.summary}}
+                </div>
+                
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+{% endblock content %}
