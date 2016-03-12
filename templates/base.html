@@ -23,14 +23,11 @@
                 <ul class="nav nav-pills nav-stacked">
                     {% for cat, null in categories %}
                         <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
-                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
-                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
-                        <li {% if cat.name == DEFAULT_CAT %}class="active"{% endif %}><a href="{{ cat.url }}">{{ cat.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
-        <div class="col-xs-10">
+        <div class="col-xs-9">
             <div id="main-content" class="ckontainer"> 
                 {% block content %}{% endblock content %}
             </div>
