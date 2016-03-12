@@ -33,6 +33,9 @@ h1, .my-red-color, .article > h3, .article > a {
 #main-content {
     margin-bottom: 30px;
 }
+.under-menu-ad {
+    margin-top: 10px;
+}
 .pages {
     margin-left: auto;
     margin-right: auto;
