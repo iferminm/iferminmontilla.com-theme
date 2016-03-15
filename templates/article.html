@@ -5,7 +5,7 @@
 {% block content %}
 <div class="article-header">
     <h1>{{ article.title }}</h1> 
-    by <a href="{{ article.author.url }}">{{ article.author.name }}</a>
+    by <a href="{{ article.author.url }}">{{ article.author.name }}</a> on {{ article.date.strftime(DATE_FORMAT) }}
 </div>
 
 {{ article.content }}
