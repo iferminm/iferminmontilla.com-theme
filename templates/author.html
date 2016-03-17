@@ -4,12 +4,29 @@
 
 {% block content %}
 
-Posts by <a href="{{ author.url }}">{{ author.name }}</a>:
+<h1>{{ BIO.title }}</h1>
+{{ BIO.details }}
+
+<h1>{{ PROJECTS_TITLE}}</h1>
+{% for project in PROJECTS %}
+<div class="project row">
+    <h3><a href="{{ project.link }}">{{ project.title }}</a></h3>
+    <div class="col-xs-2">
+        <img src="{{ project.image }}" alt="">
+    </div>
+    <div class="col-xs-9">
+        {{ project.description }}
+    </div>
+</div>
+{% endfor %}
+
+
+Latest posts by me:
 
 <ul>
-    {% for article in articles %}
+    {% for article in articles[:5] %}
         {% if article.author == author %}
-            <li><a href="{{ SITEURL }}/{{ article.slug }}.html">{{ article.title }}</a> ({{ article.date.strftime(DATE_FORMAT) }})</li>
+            <li><a href="{{ SITEURL }}/{{ article.slug }}.html">{{ article.title }}</a> on {{ article.date.strftime(DATE_FORMAT) }}</li>
         {% endif %}
     {% endfor %}
 </ul>
